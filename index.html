@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="app-container">
-        <!-- サイドバー -->
+        <!-- Sidebar -->
         <nav class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
@@ -21,51 +21,51 @@
             <ul class="nav-menu">
                 <li class="nav-item active" data-section="dashboard">
                     <i class="fas fa-chart-pie"></i>
-                    <span>ダッシュボード</span>
+                    <span>Dashboard</span>
                 </li>
                 <li class="nav-item" data-section="employees">
                     <i class="fas fa-users"></i>
-                    <span>従業員管理</span>
+                    <span>Employee Management</span>
                 </li>
                 <li class="nav-item" data-section="attendance">
                     <i class="fas fa-clock"></i>
-                    <span>勤怠管理</span>
+                    <span>Attendance Management</span>
                 </li>
                 <li class="nav-item" data-section="timesheet">
                     <i class="fas fa-calendar-alt"></i>
-                    <span>タイムシート</span>
+                    <span>Timesheet</span>
                 </li>
                 <li class="nav-item" data-section="reports">
                     <i class="fas fa-chart-bar"></i>
-                    <span>レポート</span>
+                    <span>Reports</span>
                 </li>
                 <li class="nav-item" data-section="settings">
                     <i class="fas fa-cog"></i>
-                    <span>設定</span>
+                    <span>Settings</span>
                 </li>
             </ul>
         </nav>
 
-        <!-- メインコンテンツ -->
+        <!-- Main Content -->
         <main class="main-content">
-            <!-- ヘッダー -->
+            <!-- Header -->
             <header class="header">
                 <div class="header-left">
                     <button class="menu-toggle">
                         <i class="fas fa-bars"></i>
                     </button>
-                    <h1 class="page-title">ダッシュボード</h1>
+                    <h1 class="page-title">Dashboard</h1>
                 </div>
                 <div class="header-right">
                     <div class="current-time" id="currentTime"></div>
                     <div class="user-profile">
                         <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%23667eea'/%3E%3Ctext x='20' y='26' text-anchor='middle' fill='white' font-family='Arial' font-size='16' font-weight='bold'%3EA%3C/text%3E%3C/svg%3E" alt="User" class="user-avatar">
-                        <span class="user-name">管理者</span>
+                        <span class="user-name">Administrator</span>
                     </div>
                 </div>
             </header>
 
-            <!-- ダッシュボードセクション -->
+            <!-- Dashboard Section -->
             <section id="dashboard" class="content-section active">
                 <div class="stats-grid">
                     <div class="stat-card">
@@ -74,7 +74,7 @@
                         </div>
                         <div class="stat-content">
                             <h3 class="stat-number" id="totalEmployees">0</h3>
-                            <p class="stat-label">総従業員数</p>
+                            <p class="stat-label">Total Employees</p>
                         </div>
                     </div>
                     <div class="stat-card">
@@ -83,7 +83,7 @@
                         </div>
                         <div class="stat-content">
                             <h3 class="stat-number" id="presentEmployees">0</h3>
-                            <p class="stat-label">出勤中</p>
+                            <p class="stat-label">Present</p>
                         </div>
                     </div>
                     <div class="stat-card">
@@ -92,7 +92,7 @@
                         </div>
                         <div class="stat-content">
                             <h3 class="stat-number" id="avgWorkHours">0.0</h3>
-                            <p class="stat-label">平均労働時間</p>
+                            <p class="stat-label">Average Work Hours</p>
                         </div>
                     </div>
                     <div class="stat-card">
@@ -101,34 +101,34 @@
                         </div>
                         <div class="stat-content">
                             <h3 class="stat-number" id="absentEmployees">0</h3>
-                            <p class="stat-label">欠勤者</p>
+                            <p class="stat-label">Absent</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="dashboard-grid">
                     <div class="dashboard-card">
-                        <h3>今日の勤怠状況</h3>
+                        <h3>Today's Attendance Status</h3>
                         <div class="attendance-summary" id="attendanceSummary">
-                            <!-- 動的に生成 -->
+                            <!-- Dynamically generated -->
                         </div>
                     </div>
                     <div class="dashboard-card">
-                        <h3>最近の活動</h3>
+                        <h3>Recent Activities</h3>
                         <div class="recent-activities" id="recentActivities">
-                            <!-- 動的に生成 -->
+                            <!-- Dynamically generated -->
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 従業員管理セクション -->
+            <!-- Employee Management Section -->
             <section id="employees" class="content-section">
                 <div class="section-header">
-                    <h2>従業員管理</h2>
+                    <h2>Employee Management</h2>
                     <button class="btn btn-primary" id="addEmployeeBtn">
                         <i class="fas fa-plus"></i>
-                        従業員追加
+                        Add Employee
                     </button>
                 </div>
                 <div class="table-container">
@@ -136,36 +136,36 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>名前</th>
-                                <th>部署</th>
-                                <th>役職</th>
-                                <th>入社日</th>
-                                <th>ステータス</th>
-                                <th>操作</th>
+                                <th>Name</th>
+                                <th>Department</th>
+                                <th>Position</th>
+                                <th>Hire Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody id="employeeTableBody">
-                            <!-- 動的に生成 -->
+                            <!-- Dynamically generated -->
                         </tbody>
                     </table>
                 </div>
             </section>
 
-            <!-- 勤怠管理セクション -->
+            <!-- Attendance Management Section -->
             <section id="attendance" class="content-section">
                 <div class="section-header">
-                    <h2>勤怠管理</h2>
+                    <h2>Attendance Management</h2>
                     <div class="attendance-controls">
                         <select id="attendanceEmployeeSelect" class="form-select">
-                            <option value="">従業員を選択</option>
+                            <option value="">Select Employee</option>
                         </select>
                         <button class="btn btn-success" id="clockInBtn">
                             <i class="fas fa-sign-in-alt"></i>
-                            出勤
+                            Clock In
                         </button>
                         <button class="btn btn-warning" id="clockOutBtn">
                             <i class="fas fa-sign-out-alt"></i>
-                            退勤
+                            Clock Out
                         </button>
                     </div>
                 </div>
@@ -173,104 +173,104 @@
                     <table class="data-table">
                         <thead>
                             <tr>
-                                <th>従業員名</th>
-                                <th>日付</th>
-                                <th>出勤時刻</th>
-                                <th>退勤時刻</th>
-                                <th>労働時間</th>
-                                <th>ステータス</th>
-                                <th>操作</th>
+                                <th>Employee Name</th>
+                                <th>Date</th>
+                                <th>Clock In</th>
+                                <th>Clock Out</th>
+                                <th>Work Hours</th>
+                                <th>Status</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody id="attendanceTableBody">
-                            <!-- 動的に生成 -->
+                            <!-- Dynamically generated -->
                         </tbody>
                     </table>
                 </div>
             </section>
 
-            <!-- タイムシートセクション -->
+            <!-- Timesheet Section -->
             <section id="timesheet" class="content-section">
                 <div class="section-header">
-                    <h2>タイムシート</h2>
+                    <h2>Timesheet</h2>
                     <div class="timesheet-controls">
                         <input type="month" id="timesheetMonth" class="form-input">
                         <select id="timesheetEmployee" class="form-select">
-                            <option value="">全従業員</option>
+                            <option value="">All Employees</option>
                         </select>
                         <button class="btn btn-primary" id="generateTimesheetBtn">
                             <i class="fas fa-calendar"></i>
-                            生成
+                            Generate
                         </button>
                     </div>
                 </div>
                 <div class="timesheet-container" id="timesheetContainer">
-                    <!-- 動的に生成 -->
+                    <!-- Dynamically generated -->
                 </div>
             </section>
 
-            <!-- レポートセクション -->
+            <!-- Reports Section -->
             <section id="reports" class="content-section">
                 <div class="section-header">
-                    <h2>レポート</h2>
+                    <h2>Reports</h2>
                     <div class="report-controls">
                         <input type="date" id="reportStartDate" class="form-input">
                         <input type="date" id="reportEndDate" class="form-input">
                         <button class="btn btn-primary" id="generateReportBtn">
                             <i class="fas fa-chart-line"></i>
-                            レポート生成
+                            Generate Report
                         </button>
                         <button class="btn btn-secondary" id="exportReportBtn">
                             <i class="fas fa-download"></i>
-                            エクスポート
+                            Export
                         </button>
                     </div>
                 </div>
                 <div class="report-container" id="reportContainer">
-                    <!-- 動的に生成 -->
+                    <!-- Dynamically generated -->
                 </div>
             </section>
 
-            <!-- 設定セクション -->
+            <!-- Settings Section -->
             <section id="settings" class="content-section">
                 <div class="section-header">
-                    <h2>設定</h2>
+                    <h2>Settings</h2>
                 </div>
                 <div class="settings-grid">
                     <div class="settings-card">
-                        <h3>勤務時間設定</h3>
+                        <h3>Work Time Settings</h3>
                         <div class="form-group">
-                            <label>標準勤務開始時刻</label>
+                            <label>Standard Work Start Time</label>
                             <input type="time" id="workStartTime" class="form-input" value="09:00">
                         </div>
                         <div class="form-group">
-                            <label>標準勤務終了時刻</label>
+                            <label>Standard Work End Time</label>
                             <input type="time" id="workEndTime" class="form-input" value="18:00">
                         </div>
                         <div class="form-group">
-                            <label>休憩時間（分）</label>
+                            <label>Break Time (minutes)</label>
                             <input type="number" id="breakTime" class="form-input" value="60">
                         </div>
                     </div>
                     <div class="settings-card">
-                        <h3>データ管理</h3>
+                        <h3>Data Management</h3>
                         <div class="form-group">
                             <button class="btn btn-warning" id="backupDataBtn">
                                 <i class="fas fa-download"></i>
-                                データバックアップ
+                                Backup Data
                             </button>
                         </div>
                         <div class="form-group">
                             <input type="file" id="restoreDataInput" accept=".json" style="display: none;">
                             <button class="btn btn-info" id="restoreDataBtn">
                                 <i class="fas fa-upload"></i>
-                                データ復元
+                                Restore Data
                             </button>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-danger" id="clearDataBtn">
                                 <i class="fas fa-trash"></i>
-                                全データクリア
+                                Clear All Data
                             </button>
                         </div>
                     </div>
@@ -279,47 +279,47 @@
         </main>
     </div>
 
-    <!-- モーダル -->
+    <!-- Modal -->
     <div id="employeeModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 id="modalTitle">従業員追加</h3>
+                <h3 id="modalTitle">Add Employee</h3>
                 <button class="modal-close">&times;</button>
             </div>
             <form id="employeeForm">
                 <div class="form-group">
-                    <label for="employeeName">名前 *</label>
+                    <label for="employeeName">Name *</label>
                     <input type="text" id="employeeName" class="form-input" required>
                 </div>
                 <div class="form-group">
-                    <label for="employeeDepartment">部署 *</label>
+                    <label for="employeeDepartment">Department *</label>
                     <input type="text" id="employeeDepartment" class="form-input" required>
                 </div>
                 <div class="form-group">
-                    <label for="employeePosition">役職 *</label>
+                    <label for="employeePosition">Position *</label>
                     <input type="text" id="employeePosition" class="form-input" required>
                 </div>
                 <div class="form-group">
-                    <label for="employeeHireDate">入社日 *</label>
+                    <label for="employeeHireDate">Hire Date *</label>
                     <input type="date" id="employeeHireDate" class="form-input" required>
                 </div>
                 <div class="form-group">
-                    <label for="employeeEmail">メールアドレス</label>
+                    <label for="employeeEmail">Email Address</label>
                     <input type="email" id="employeeEmail" class="form-input">
                 </div>
                 <div class="form-group">
-                    <label for="employeePhone">電話番号</label>
+                    <label for="employeePhone">Phone Number</label>
                     <input type="tel" id="employeePhone" class="form-input">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="cancelBtn">キャンセル</button>
-                    <button type="submit" class="btn btn-primary">保存</button>
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- 通知 -->
+    <!-- Notification -->
     <div id="notification" class="notification">
         <div class="notification-content">
             <i class="notification-icon"></i>

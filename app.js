@@ -10,7 +10,7 @@ class HRSystem {
         this.init();
     }
 
-    // 初期化
+    // Initialization
     init() {
         this.setupEventListeners();
         this.updateCurrentTime();
@@ -20,37 +20,37 @@ class HRSystem {
         this.populateEmployeeSelects();
         this.setDefaultDates();
         
-        // 時刻を1秒ごとに更新
+        // Update time every second
         setInterval(() => this.updateCurrentTime(), 1000);
     }
 
-    // デフォルト設定
+    // Default settings
     getDefaultSettings() {
         return {
             workStartTime: '09:00',
             workEndTime: '18:00',
             breakTime: 60,
-            company: 'サンプル会社',
+            company: 'Sample Company',
             timezone: 'Asia/Tokyo'
         };
     }
 
-    // データの保存
+    // Data save
     saveData(key, data) {
         try {
             localStorage.setItem(`hr_system_${key}`, JSON.stringify(data));
         } catch (error) {
-            this.showNotification('データの保存に失敗しました', 'error');
+            this.showNotification('Failed to save data', 'error');
         }
     }
 
-    // データの読み込み
+    // Data load
     loadData(key) {
         try {
             const data = localStorage.getItem(`hr_system_${key}`);
             return data ? JSON.parse(data) : null;
         } catch (error) {
-            this.showNotification('データの読み込みに失敗しました', 'error');
+            this.showNotification('Failed to load data', 'error');
             return null;
         }
     }
@@ -192,12 +192,12 @@ class HRSystem {
 
         // ページタイトルの更新
         const titles = {
-            dashboard: 'ダッシュボード',
-            employees: '従業員管理',
-            attendance: '勤怠管理',
-            timesheet: 'タイムシート',
-            reports: 'レポート',
-            settings: '設定'
+            dashboard: 'Dashboard',
+            employees: 'Employee Management',
+            attendance: 'Attendance Management',
+            timesheet: 'Timesheet',
+            reports: 'Reports',
+            settings: 'Settings'
         };
         document.querySelector('.page-title').textContent = titles[sectionName];
 
@@ -263,23 +263,23 @@ class HRSystem {
         const summaryHtml = todayAttendance.map(record => {
             const employee = this.employees.find(emp => emp.id === record.employeeId);
             const status = record.clockOut ? 'status-absent' : 'status-present';
-            const statusText = record.clockOut ? '退勤済み' : '出勤中';
+            const statusText = record.clockOut ? 'Clocked out' : 'Present';
             
             return `
                 <div class="attendance-item">
                     <div class="employee-info">
-                        <strong>${employee ? employee.name : '不明'}</strong>
+                        <strong>${employee ? employee.name : 'Unknown'}</strong>
                         <span class="status-badge ${status}">${statusText}</span>
                     </div>
                     <div class="time-info">
-                        <span>出勤: ${record.clockIn || '-'}</span>
-                        <span>退勤: ${record.clockOut || '-'}</span>
+                        <span>Clock in: ${record.clockIn || '-'}</span>
+                        <span>Clock out: ${record.clockOut || '-'}</span>
                     </div>
                 </div>
             `;
         }).join('');
 
-        document.getElementById('attendanceSummary').innerHTML = summaryHtml || '<p>今日の勤怠記録はありません</p>';
+        document.getElementById('attendanceSummary').innerHTML = summaryHtml || '<p>No attendance records for today</p>';
     }
 
     // 最近の活動
@@ -290,20 +290,20 @@ class HRSystem {
 
         const activitiesHtml = recentRecords.map(record => {
             const employee = this.employees.find(emp => emp.id === record.employeeId);
-            const action = record.clockOut ? '退勤' : '出勤';
+            const action = record.clockOut ? 'clocked out' : 'clocked in';
             const time = record.clockOut || record.clockIn;
             
             return `
                 <div class="activity-item">
                     <div class="activity-content">
-                        <strong>${employee ? employee.name : '不明'}</strong>が${action}しました
+                        <strong>${employee ? employee.name : 'Unknown'}</strong> ${action}
                         <div class="activity-time">${record.date} ${time}</div>
                     </div>
                 </div>
             `;
         }).join('');
 
-        document.getElementById('recentActivities').innerHTML = activitiesHtml || '<p>最近の活動はありません</p>';
+        document.getElementById('recentActivities').innerHTML = activitiesHtml || '<p>No recent activities</p>';
     }
 
     // 平均労働時間の計算
@@ -333,7 +333,7 @@ class HRSystem {
         const tbody = document.getElementById('employeeTableBody');
         
         if (this.employees.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="7" style="text-align: center;">従業員が登録されていません</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="7" style="text-align: center;">No employees registered</td></tr>';
             return;
         }
 
@@ -344,7 +344,7 @@ class HRSystem {
                 <td>${employee.department}</td>
                 <td>${employee.position}</td>
                 <td>${employee.hireDate}</td>
-                <td><span class="status-badge status-active">アクティブ</span></td>
+                <td><span class="status-badge status-active">Active</span></td>
                 <td>
                     <button class="btn btn-info" onclick="hrSystem.editEmployee(${employee.id})" style="margin-right: 0.5rem;">
                         <i class="fas fa-edit"></i>
@@ -367,7 +367,7 @@ class HRSystem {
         if (employee) {
             // 編集モード
             this.editingEmployeeId = employee.id;
-            document.getElementById('modalTitle').textContent = '従業員編集';
+            document.getElementById('modalTitle').textContent = 'Edit Employee';
             document.getElementById('employeeName').value = employee.name;
             document.getElementById('employeeDepartment').value = employee.department;
             document.getElementById('employeePosition').value = employee.position;
@@ -377,7 +377,7 @@ class HRSystem {
         } else {
             // 新規追加モード
             this.editingEmployeeId = null;
-            document.getElementById('modalTitle').textContent = '従業員追加';
+            document.getElementById('modalTitle').textContent = 'Add Employee';
             form.reset();
         }
 
@@ -403,7 +403,7 @@ class HRSystem {
 
         // バリデーション
         if (!formData.name || !formData.department || !formData.position || !formData.hireDate) {
-            this.showNotification('必須項目を入力してください', 'error');
+            this.showNotification('Please enter required fields', 'error');
             return;
         }
 
@@ -412,7 +412,7 @@ class HRSystem {
             const index = this.employees.findIndex(emp => emp.id === this.editingEmployeeId);
             if (index !== -1) {
                 this.employees[index] = { ...this.employees[index], ...formData };
-                this.showNotification('従業員情報を更新しました', 'success');
+                this.showNotification('Employee information updated', 'success');
             }
         } else {
             // 新規追加
@@ -422,7 +422,7 @@ class HRSystem {
                 createdAt: new Date().toISOString()
             };
             this.employees.push(newEmployee);
-            this.showNotification('従業員を追加しました', 'success');
+            this.showNotification('Employee added', 'success');
         }
 
         this.saveData('employees', this.employees);
@@ -441,7 +441,7 @@ class HRSystem {
 
     // 従業員の削除
     deleteEmployee(id) {
-        if (confirm('この従業員を削除しますか？関連する勤怠記録も削除されます。')) {
+        if (confirm('Delete this employee? Related attendance records will also be deleted.')) {
             this.employees = this.employees.filter(emp => emp.id !== id);
             this.attendance = this.attendance.filter(record => record.employeeId !== id);
             
@@ -450,7 +450,7 @@ class HRSystem {
             
             this.loadEmployees();
             this.populateEmployeeSelects();
-            this.showNotification('従業員を削除しました', 'success');
+            this.showNotification('Employee deleted', 'success');
         }
     }
 
@@ -468,9 +468,9 @@ class HRSystem {
             ).join('');
             
             if (select.id === 'attendanceEmployeeSelect') {
-                select.innerHTML = '<option value="">従業員を選択</option>' + options;
+                select.innerHTML = '<option value="">Please select an employee</option>' + options;
             } else {
-                select.innerHTML = '<option value="">全従業員</option>' + options;
+                select.innerHTML = '<option value="">All employees</option>' + options;
             }
             
             select.value = currentValue;
@@ -481,7 +481,7 @@ class HRSystem {
     clockIn() {
         const employeeId = parseInt(document.getElementById('attendanceEmployeeSelect').value);
         if (!employeeId) {
-            this.showNotification('従業員を選択してください', 'error');
+            this.showNotification('Please select an employee', 'error');
             return;
         }
 
@@ -494,7 +494,7 @@ class HRSystem {
         );
 
         if (existingRecord && existingRecord.clockIn) {
-            this.showNotification('既に出勤記録があります', 'warning');
+            this.showNotification('Clock in record already exists', 'warning');
             return;
         }
 
@@ -513,14 +513,14 @@ class HRSystem {
         this.loadDashboard();
 
         const employee = this.employees.find(emp => emp.id === employeeId);
-        this.showNotification(`${employee.name}さんが出勤しました`, 'success');
+        this.showNotification(`${employee.name} clocked in`, 'success');
     }
 
     // 退勤
     clockOut() {
         const employeeId = parseInt(document.getElementById('attendanceEmployeeSelect').value);
         if (!employeeId) {
-            this.showNotification('従業員を選択してください', 'error');
+            this.showNotification('Please select an employee', 'error');
             return;
         }
 
@@ -533,7 +533,7 @@ class HRSystem {
         );
 
         if (recordIndex === -1) {
-            this.showNotification('出勤記録が見つかりません', 'error');
+            this.showNotification('Clock in record not found', 'error');
             return;
         }
 
@@ -543,7 +543,7 @@ class HRSystem {
         this.loadDashboard();
 
         const employee = this.employees.find(emp => emp.id === employeeId);
-        this.showNotification(`${employee.name}さんが退勤しました`, 'success');
+        this.showNotification(`${employee.name} clocked out`, 'success');
     }
 
     // 勤怠記録の読み込み
@@ -551,7 +551,7 @@ class HRSystem {
         const tbody = document.getElementById('attendanceTableBody');
         
         if (this.attendance.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="7" style="text-align: center;">勤怠記録がありません</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="7" style="text-align: center;">No attendance records</td></tr>';
             return;
         }
 
@@ -564,7 +564,7 @@ class HRSystem {
             const workHours = record.clockOut ? 
                 this.calculateWorkHours(record.clockIn, record.clockOut).toFixed(1) : '-';
             const status = record.clockOut ? 'status-absent' : 'status-present';
-            const statusText = record.clockOut ? '退勤済み' : '出勤中';
+            const statusText = record.clockOut ? 'Clocked out' : 'Present';
 
             return `
                 <tr>
@@ -572,7 +572,7 @@ class HRSystem {
                     <td>${record.date}</td>
                     <td>${record.clockIn || '-'}</td>
                     <td>${record.clockOut || '-'}</td>
-                    <td>${workHours}時間</td>
+                    <td>${workHours} hours</td>
                     <td><span class="status-badge ${status}">${statusText}</span></td>
                     <td>
                         <button class="btn btn-danger" onclick="hrSystem.deleteAttendance(${record.id})">
@@ -588,12 +588,12 @@ class HRSystem {
 
     // 勤怠記録の削除
     deleteAttendance(id) {
-        if (confirm('この勤怠記録を削除しますか？')) {
+        if (confirm('Delete this attendance record?')) {
             this.attendance = this.attendance.filter(record => record.id !== id);
             this.saveData('attendance', this.attendance);
             this.loadAttendance();
             this.loadDashboard();
-            this.showNotification('勤怠記録を削除しました', 'success');
+            this.showNotification('Attendance record deleted', 'success');
         }
     }
 
@@ -603,7 +603,7 @@ class HRSystem {
         const employeeId = document.getElementById('timesheetEmployee').value;
 
         if (!month) {
-            this.showNotification('月を選択してください', 'error');
+            this.showNotification('Please select a month', 'error');
             return;
         }
 
@@ -618,7 +618,7 @@ class HRSystem {
         const container = document.getElementById('timesheetContainer');
         
         if (employees.length === 0) {
-            container.innerHTML = '<p>従業員が見つかりません</p>';
+            container.innerHTML = '<p>Employee not found</p>';
             return;
         }
 
@@ -635,12 +635,12 @@ class HRSystem {
                     <table class="timesheet-table">
                         <thead>
                             <tr>
-                                <th>日付</th>
-                                <th>曜日</th>
-                                <th>出勤</th>
-                                <th>退勤</th>
-                                <th>労働時間</th>
-                                <th>備考</th>
+                                <th>Date</th>
+                                <th>Day</th>
+                                <th>Clock In</th>
+                                <th>Clock Out</th>
+                                <th>Work Hours</th>
+                                <th>Notes</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -649,7 +649,7 @@ class HRSystem {
             for (let day = 1; day <= endDate.getDate(); day++) {
                 const date = new Date(year, monthNum - 1, day);
                 const dateStr = `${year}-${monthNum.padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
-                const dayOfWeek = ['日', '月', '火', '水', '木', '金', '土'][date.getDay()];
+                const dayOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][date.getDay()];
                 const isWeekend = date.getDay() === 0 || date.getDay() === 6;
                 
                 const record = employeeRecords.find(r => r.date === dateStr);
@@ -664,7 +664,7 @@ class HRSystem {
                         <td>${dayOfWeek}</td>
                         <td>${clockIn}</td>
                         <td>${clockOut}</td>
-                        <td>${workHours}${workHours !== '-' ? '時間' : ''}</td>
+                        <td>${workHours}${workHours !== '-' ? ' hours' : ''}</td>
                         <td></td>
                     </tr>
                 `;
@@ -679,8 +679,8 @@ class HRSystem {
                         </tbody>
                         <tfoot>
                             <tr style="font-weight: bold; background-color: var(--gray-100);">
-                                <td colspan="4">合計</td>
-                                <td>${totalHours.toFixed(1)}時間</td>
+                                <td colspan="4">Total</td>
+                                <td>${totalHours.toFixed(1)} hours</td>
                                 <td></td>
                             </tr>
                         </tfoot>
@@ -700,7 +700,7 @@ class HRSystem {
         const endDate = document.getElementById('reportEndDate').value;
 
         if (!startDate || !endDate) {
-            this.showNotification('開始日と終了日を選択してください', 'error');
+            this.showNotification('Please select start and end dates', 'error');
             return;
         }
 
@@ -739,32 +739,32 @@ class HRSystem {
             <div class="report-summary">
                 <div class="report-item">
                     <h4>${totalRecords}</h4>
-                    <p>総出勤日数</p>
+                    <p>Total Work Days</p>
                 </div>
                 <div class="report-item">
                     <h4>${completedRecords.length}</h4>
-                    <p>完了日数</p>
+                    <p>Completed Days</p>
                 </div>
                 <div class="report-item">
                     <h4>${totalWorkHours.toFixed(1)}</h4>
-                    <p>総労働時間</p>
+                    <p>Total Work Hours</p>
                 </div>
                 <div class="report-item">
                     <h4>${avgWorkHours.toFixed(1)}</h4>
-                    <p>平均労働時間</p>
+                    <p>Average Work Hours</p>
                 </div>
             </div>
 
-            <h4>従業員別統計</h4>
+            <h4>Employee Statistics</h4>
             <table class="data-table">
                 <thead>
                     <tr>
-                        <th>従業員名</th>
-                        <th>部署</th>
-                        <th>出勤日数</th>
-                        <th>完了日数</th>
-                        <th>総労働時間</th>
-                        <th>平均労働時間</th>
+                        <th>Employee Name</th>
+                        <th>Department</th>
+                        <th>Work Days</th>
+                        <th>Completed Days</th>
+                        <th>Total Work Hours</th>
+                        <th>Average Work Hours</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -774,8 +774,8 @@ class HRSystem {
                             <td>${stat.employee.department}</td>
                             <td>${stat.totalDays}</td>
                             <td>${stat.completedDays}</td>
-                            <td>${stat.totalHours.toFixed(1)}時間</td>
-                            <td>${stat.avgHours.toFixed(1)}時間</td>
+                            <td>${stat.totalHours.toFixed(1)} hours</td>
+                            <td>${stat.avgHours.toFixed(1)} hours</td>
                         </tr>
                     `).join('')}
                 </tbody>
@@ -802,7 +802,7 @@ class HRSystem {
         link.download = `hr_report_${new Date().toISOString().split('T')[0]}.json`;
         link.click();
 
-        this.showNotification('レポートをエクスポートしました', 'success');
+        this.showNotification('Report exported', 'success');
     }
 
     // 設定の読み込み
@@ -829,7 +829,7 @@ class HRSystem {
         link.download = `hr_backup_${new Date().toISOString().split('T')[0]}.json`;
         link.click();
 
-        this.showNotification('データをバックアップしました', 'success');
+        this.showNotification('Data backed up', 'success');
     }
 
     // データの復元
@@ -856,12 +856,12 @@ class HRSystem {
                     this.populateEmployeeSelects();
                     this.loadDashboard();
                     
-                    this.showNotification('データを復元しました', 'success');
+                    this.showNotification('Data restored', 'success');
                 } else {
-                    this.showNotification('無効なバックアップファイルです', 'error');
+                    this.showNotification('Invalid backup file', 'error');
                 }
             } catch (error) {
-                this.showNotification('ファイルの読み込みに失敗しました', 'error');
+                this.showNotification('Failed to read file', 'error');
             }
         };
         reader.readAsText(file);
@@ -869,7 +869,7 @@ class HRSystem {
 
     // 全データのクリア
     clearAllData() {
-        if (confirm('全てのデータを削除しますか？この操作は取り消せません。')) {
+        if (confirm('Delete all data? This operation cannot be undone.')) {
             localStorage.removeItem('hr_system_employees');
             localStorage.removeItem('hr_system_attendance');
             localStorage.removeItem('hr_system_settings');
@@ -884,7 +884,7 @@ class HRSystem {
             this.populateEmployeeSelects();
             this.loadDashboard();
             
-            this.showNotification('全データを削除しました', 'success');
+            this.showNotification('All data deleted', 'success');
         }
     }
 
@@ -944,9 +944,9 @@ HRSystem.prototype.addSampleData = function() {
     const sampleEmployees = [
         {
             id: 1,
-            name: '田中 太郎',
-            department: '営業部',
-            position: '営業課長',
+            name: 'Taro Tanaka',
+            department: 'Sales Department',
+            position: 'Sales Manager',
             hireDate: '2020-04-01',
             email: 'tanaka@example.com',
             phone: '090-1234-5678',
@@ -954,9 +954,9 @@ HRSystem.prototype.addSampleData = function() {
         },
         {
             id: 2,
-            name: '佐藤 花子',
-            department: '開発部',
-            position: 'エンジニア',
+            name: 'Hanako Sato',
+            department: 'Development Department',
+            position: 'Engineer',
             hireDate: '2021-07-15',
             email: 'sato@example.com',
             phone: '090-2345-6789',
@@ -964,9 +964,9 @@ HRSystem.prototype.addSampleData = function() {
         },
         {
             id: 3,
-            name: '鈴木 一郎',
-            department: '総務部',
-            position: '総務主任',
+            name: 'Ichiro Suzuki',
+            department: 'General Affairs Department',
+            position: 'General Affairs Supervisor',
             hireDate: '2019-10-01',
             email: 'suzuki@example.com',
             phone: '090-3456-7890',

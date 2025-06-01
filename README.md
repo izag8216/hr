@@ -5,178 +5,178 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-> 中小企業向けの包括的な人事・勤怠管理システム  
-> プロフェッショナルレベルのUI/UXを備えたWebアプリケーション
+> Comprehensive HR & Time Tracking System for small and medium businesses  
+> Web application with professional-level UI/UX
 
-## 📋 目次
+## 📋 Table of Contents
 
-- [概要](#概要)
-- [主要機能](#主要機能)
-- [技術仕様](#技術仕様)
-- [インストール](#インストール)
-- [使用方法](#使用方法)
-- [機能詳細](#機能詳細)
-- [データ管理](#データ管理)
-- [カスタマイズ](#カスタマイズ)
-- [トラブルシューティング](#トラブルシューティング)
-- [ライセンス](#ライセンス)
-- [貢献](#貢献)
+- [Overview](#overview)
+- [Main Features](#main-features)
+- [Technical Specifications](#technical-specifications)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Feature Details](#feature-details)
+- [Data Management](#data-management)
+- [Customization](#customization)
+- [Troubleshooting](#troubleshooting)
+- [License](#license)
+- [Contributing](#contributing)
 
-## 🎯 概要
+## 🎯 Overview
 
-HR & Time Tracking Systemは、中小企業のニーズに特化して設計された包括的な人事・勤怠管理システムです。モダンなWebテクノロジーを使用し、直感的なユーザーインターフェースと強力な機能を提供します。
+The HR & Time Tracking System is a comprehensive human resources and attendance management system specifically designed for the needs of small and medium businesses. It uses modern web technologies to provide an intuitive user interface and powerful functionality.
 
-### ✨ 特徴
+### ✨ Features
 
-- 🎨 **モダンUI/UX**: ミニマリストでプロフェッショナルなデザイン
-- 📱 **レスポンシブ**: モバイル・タブレット・デスクトップ対応
-- ⚡ **高速**: Vanilla JavaScriptによる軽量実装
-- 💾 **ローカルストレージ**: ブラウザ内でのデータ永続化
-- 🔒 **セキュア**: クライアントサイドでの安全なデータ管理
-- 🌐 **オフライン対応**: インターネット接続不要
+- 🎨 **Modern UI/UX**: Minimalist and professional design
+- 📱 **Responsive**: Mobile, tablet, and desktop support
+- ⚡ **Fast**: Lightweight implementation with Vanilla JavaScript
+- 💾 **Local Storage**: Data persistence within the browser
+- 🔒 **Secure**: Safe client-side data management
+- 🌐 **Offline Support**: No internet connection required
 
-## 🚀 主要機能
+## 🚀 Main Features
 
-### 📊 ダッシュボード
-- リアルタイム統計表示
-- 今日の勤怠状況一覧
-- 最近の活動履歴
-- 視覚的なデータ表示
+### 📊 Dashboard
+- Real-time statistics display
+- Today's attendance status overview
+- Recent activity history
+- Visual data presentation
 
-### 👥 従業員管理
-- 従業員情報の登録・編集・削除
-- 部署・役職管理
-- 連絡先情報管理
-- 入社日・ステータス管理
+### 👥 Employee Management
+- Employee information registration, editing, and deletion
+- Department and position management
+- Contact information management
+- Hire date and status management
 
-### ⏰ 勤怠管理
-- 出勤・退勤の記録
-- 労働時間の自動計算
-- 休憩時間の考慮
-- リアルタイム勤怠状況
+### ⏰ Attendance Management
+- Clock-in and clock-out recording
+- Automatic work hours calculation
+- Break time consideration
+- Real-time attendance status
 
-### 📅 タイムシート
-- 月別勤怠表の生成
-- 従業員別・全体表示
-- 労働時間の集計
-- 週末・祝日の識別
+### 📅 Timesheet
+- Monthly attendance table generation
+- Individual employee and overall display
+- Work hours aggregation
+- Weekend and holiday identification
 
-### 📈 レポート機能
-- 期間別統計レポート
-- 従業員別分析
-- 労働時間分析
-- データエクスポート（JSON形式）
+### 📈 Reporting Features
+- Period-based statistical reports
+- Individual employee analysis
+- Work hours analysis
+- Data export (JSON format)
 
-### ⚙️ 設定管理
-- 勤務時間設定
-- 休憩時間設定
-- データバックアップ・復元
-- システム設定
+### ⚙️ Settings Management
+- Work time configuration
+- Break time settings
+- Data backup and restore
+- System settings
 
-## 🛠 技術仕様
+## 🛠 Technical Specifications
 
-### フロントエンド
-- **HTML5**: セマンティックマークアップ
-- **CSS3**: モダンスタイリング（Grid, Flexbox, CSS Variables）
-- **JavaScript (ES6+)**: クラスベース設計、モジュラー構造
+### Frontend
+- **HTML5**: Semantic markup
+- **CSS3**: Modern styling (Grid, Flexbox, CSS Variables)
+- **JavaScript (ES6+)**: Class-based design, modular structure
 
-### 外部ライブラリ
-- **Font Awesome 6.0**: アイコンライブラリ
-- **Inter Font**: タイポグラフィ
+### External Libraries
+- **Font Awesome 6.0**: Icon library
+- **Inter Font**: Typography
 
-### ブラウザサポート
+### Browser Support
 - Chrome 80+
 - Firefox 75+
 - Safari 13+
 - Edge 80+
 
-### データストレージ
-- **LocalStorage**: ブラウザ内データ永続化
-- **JSON**: 構造化データ形式
+### Data Storage
+- **LocalStorage**: Browser-based data persistence
+- **JSON**: Structured data format
 
-## 📦 インストール
+## 📦 Installation
 
-### 1. リポジトリのクローン
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/izag8216/hr.git
 cd hr
 ```
 
-### 2. ファイル構成の確認
+### 2. File Structure Verification
 ```
 hr/
-├── index.html          # メインHTMLファイル
-├── style.css           # スタイルシート
-├── app.js             # JavaScriptアプリケーション
-└── README.md          # このファイル
+├── index.html          # Main HTML file
+├── style.css           # Stylesheet
+├── app.js             # JavaScript application
+└── README.md          # This file
 ```
 
-### 3. 起動
-ブラウザで `index.html` を開くだけで使用開始できます。
+### 3. Launch
+Simply open `index.html` in a browser to start using the application.
 
 ```bash
-# 簡易HTTPサーバーを使用する場合（推奨）
+# Using a simple HTTP server (recommended)
 python -m http.server 8000
-# または
+# or
 npx serve .
 ```
 
-ブラウザで `http://localhost:8000` にアクセス
+Access `http://localhost:8000` in your browser
 
-## 📖 使用方法
+## 📖 Usage
 
-### 初回起動
-1. ブラウザで `index.html` を開く
-2. サンプルデータが自動的に生成される
-3. ダッシュボードで概要を確認
+### Initial Launch
+1. Open `index.html` in a browser
+2. Sample data is automatically generated
+3. Review the overview on the dashboard
 
-### 従業員の追加
-1. サイドバーから「従業員管理」を選択
-2. 「従業員追加」ボタンをクリック
-3. 必要情報を入力して保存
+### Adding Employees
+1. Select "Employee Management" from the sidebar
+2. Click the "Add Employee" button
+3. Enter required information and save
 
-### 勤怠記録
-1. 「勤怠管理」セクションに移動
-2. 従業員を選択
-3. 「出勤」または「退勤」ボタンをクリック
+### Recording Attendance
+1. Navigate to the "Attendance Management" section
+2. Select an employee
+3. Click the "Clock In" or "Clock Out" button
 
-### レポート生成
-1. 「レポート」セクションに移動
-2. 期間を設定
-3. 「レポート生成」ボタンをクリック
+### Generating Reports
+1. Navigate to the "Reports" section
+2. Set the time period
+3. Click the "Generate Report" button
 
-## 🔧 機能詳細
+## 🔧 Feature Details
 
-### ダッシュボード機能
-- **統計カード**: 総従業員数、出勤中、平均労働時間、欠勤者
-- **勤怠サマリー**: 今日の出勤状況をリアルタイム表示
-- **活動履歴**: 最新の出勤・退勤記録
+### Dashboard Features
+- **Statistics Cards**: Total employees, currently present, average work hours, absent employees
+- **Attendance Summary**: Real-time display of today's attendance status
+- **Activity History**: Latest clock-in and clock-out records
 
-### 従業員管理機能
-- **CRUD操作**: 作成、読み取り、更新、削除
-- **バリデーション**: 必須項目チェック
-- **検索・フィルタ**: 従業員の検索機能
+### Employee Management Features
+- **CRUD Operations**: Create, Read, Update, Delete
+- **Validation**: Required field checking
+- **Search & Filter**: Employee search functionality
 
-### 勤怠管理機能
-- **時刻記録**: 出勤・退勤時刻の自動記録
-- **重複チェック**: 同日の重複出勤防止
-- **労働時間計算**: 休憩時間を考慮した自動計算
+### Attendance Management Features
+- **Time Recording**: Automatic recording of clock-in and clock-out times
+- **Duplicate Check**: Prevention of duplicate clock-ins on the same day
+- **Work Hours Calculation**: Automatic calculation considering break time
 
-### タイムシート機能
-- **月別表示**: カレンダー形式での勤怠表示
-- **週末識別**: 土日の視覚的区別
-- **合計時間**: 月間労働時間の自動集計
+### Timesheet Features
+- **Monthly Display**: Calendar-format attendance display
+- **Weekend Identification**: Visual distinction of weekends
+- **Total Hours**: Automatic aggregation of monthly work hours
 
-### レポート機能
-- **期間指定**: 任意期間でのレポート生成
-- **統計分析**: 平均労働時間、出勤率など
-- **エクスポート**: JSON形式でのデータ出力
+### Reporting Features
+- **Period Specification**: Report generation for any specified period
+- **Statistical Analysis**: Average work hours, attendance rate, etc.
+- **Export**: Data output in JSON format
 
-## 💾 データ管理
+## 💾 Data Management
 
-### データ構造
+### Data Structure
 ```javascript
-// 従業員データ
+// Employee Data
 {
   id: Number,
   name: String,
@@ -188,7 +188,7 @@ npx serve .
   createdAt: String
 }
 
-// 勤怠データ
+// Attendance Data
 {
   id: Number,
   employeeId: Number,
@@ -199,56 +199,56 @@ npx serve .
 }
 ```
 
-### バックアップ・復元
-- **バックアップ**: 設定画面からJSONファイルとしてエクスポート
-- **復元**: JSONファイルをインポートしてデータ復元
-- **クリア**: 全データの一括削除機能
+### Backup & Restore
+- **Backup**: Export as JSON file from the settings screen
+- **Restore**: Import JSON file to restore data
+- **Clear**: Bulk deletion of all data
 
-## 🎨 カスタマイズ
+## 🎨 Customization
 
-### テーマカスタマイズ
-`style.css` の CSS Variables を編集：
+### Theme Customization
+Edit CSS Variables in `style.css`:
 
 ```css
 :root {
   --primary-color: #667eea;
   --secondary-color: #764ba2;
   --success-color: #48bb78;
-  /* その他の色設定 */
+  /* Other color settings */
 }
 ```
 
-### 機能拡張
-`app.js` のクラスメソッドを拡張：
+### Feature Extension
+Extend class methods in `app.js`:
 
 ```javascript
-// 新機能の追加例
+// Example of adding new features
 HRSystem.prototype.customFeature = function() {
-  // カスタム機能の実装
+  // Custom feature implementation
 };
 ```
 
-## 🐛 トラブルシューティング
+## 🐛 Troubleshooting
 
-### よくある問題
+### Common Issues
 
-**Q: データが保存されない**
-A: ブラウザのLocalStorageが有効か確認してください。プライベートモードでは制限される場合があります。
+**Q: Data is not being saved**
+A: Please check if the browser's LocalStorage is enabled. It may be restricted in private browsing mode.
 
-**Q: レスポンシブデザインが正しく表示されない**
-A: ブラウザのキャッシュをクリアして再読み込みしてください。
+**Q: Responsive design is not displaying correctly**
+A: Clear the browser cache and reload the page.
 
-**Q: 日本語が文字化けする**
-A: HTMLファイルの文字エンコーディングがUTF-8に設定されているか確認してください。
+**Q: Japanese characters are garbled**
+A: Please check if the HTML file's character encoding is set to UTF-8.
 
-### デバッグ方法
-1. ブラウザの開発者ツールを開く（F12）
-2. Consoleタブでエラーメッセージを確認
-3. Applicationタブ > Local Storage でデータを確認
+### Debugging Methods
+1. Open browser developer tools (F12)
+2. Check error messages in the Console tab
+3. Verify data in Application tab > Local Storage
 
-## 📄 ライセンス
+## 📄 License
 
-このプロジェクトは [MIT License](https://opensource.org/licenses/MIT) の下で公開されています。
+This project is released under the [MIT License](https://opensource.org/licenses/MIT).
 
 ```
 MIT License
@@ -274,41 +274,41 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-## 🤝 貢献
+## 🤝 Contributing
 
-プロジェクトへの貢献を歓迎します！
+Contributions to the project are welcome!
 
-### 貢献方法
-1. このリポジトリをフォーク
-2. 機能ブランチを作成 (`git checkout -b feature/AmazingFeature`)
-3. 変更をコミット (`git commit -m 'Add some AmazingFeature'`)
-4. ブランチにプッシュ (`git push origin feature/AmazingFeature`)
-5. プルリクエストを作成
+### How to Contribute
+1. Fork this repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Create a pull request
 
-### 開発ガイドライン
-- コードスタイルの一貫性を保つ
-- 適切なコメントを追加
-- 機能追加時はドキュメントも更新
-- テスト可能な小さな変更を心がける
+### Development Guidelines
+- Maintain code style consistency
+- Add appropriate comments
+- Update documentation when adding features
+- Aim for small, testable changes
 
-## 📞 サポート
+## 📞 Support
 
 - **Issues**: [GitHub Issues](https://github.com/izag8216/hr/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/izag8216/hr/discussions)
 
-## 🔄 更新履歴
+## 🔄 Update History
 
 ### v1.0.0 (2025-01-XX)
-- 初回リリース
-- 基本的な人事・勤怠管理機能
-- レスポンシブデザイン
-- データバックアップ・復元機能
+- Initial release
+- Basic HR and attendance management features
+- Responsive design
+- Data backup and restore functionality
 
 ---
 
 <div align="center">
 
-**[⬆ トップに戻る](#-hr--time-tracking-system)**
+**[⬆ Back to Top](#-hr--time-tracking-system)**
 
 Made with ❤️ by [izag8216](https://github.com/izag8216)
 
