@@ -62,12 +62,37 @@ class HRSystem {
             item.addEventListener('click', (e) => {
                 const section = e.currentTarget.dataset.section;
                 this.showSection(section);
+                
+                // モバイルでナビゲーション項目クリック時にサイドバーを閉じる
+                if (window.innerWidth <= 1024) {
+                    document.querySelector('.sidebar').classList.remove('open');
+                }
             });
         });
 
         // モバイルメニュー
         document.querySelector('.menu-toggle').addEventListener('click', () => {
             document.querySelector('.sidebar').classList.toggle('open');
+        });
+
+        // サイドバー外クリックで閉じる
+        document.addEventListener('click', (e) => {
+            const sidebar = document.querySelector('.sidebar');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            // サイドバーが開いている状態で、サイドバー外をクリックした場合
+            if (sidebar.classList.contains('open') && 
+                !sidebar.contains(e.target) && 
+                !menuToggle.contains(e.target)) {
+                sidebar.classList.remove('open');
+            }
+        });
+
+        // ESCキーでサイドバーを閉じる
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelector('.sidebar').classList.remove('open');
+            }
         });
 
         // 従業員管理
